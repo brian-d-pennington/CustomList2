@@ -8,8 +8,74 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void AddToList_IfIntAdded_GoesUpByOne()
         {
+            BriansList<int> list = new BriansList<int>();
+            //arrange
+            int expected = 1;
+            //act
+            list.Add(16);
+            int actual = list.Count;
+            //assert
+            Assert.AreEqual(expected, actual);
         }
+        [TestMethod]
+        public void AddToList_IfIndexOneIsAdded_IntAddedAtIndexOne()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            int expected = 17;
+            //Act
+            list.Add(16);
+            list.Add(17);
+            int actual = list[1];
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void AddToList_WhenANewIndexAdded_ZeroIndexRemains()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            int expected = 17;
+            int actual;
+            //Act
+            list.Add(16);
+            list.Add(17);
+            actual = list[1];
+
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void AddToList_1000Adds()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            int expected = 1000;
+            int actual;
+            //Act
+            for (int i = 0; i < 1000; i++)
+            {
+                list.Add(i);
+            }
+            actual = list[999];
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        //Remove() tests
+        [TestMethod]
+        public void RemoveItem_RemovesLastIndex()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            int expected;
+            int actual;
+            //Act
+            list.Remove(list[i]);
+            //Assert
+
+        }
+
     }
 }

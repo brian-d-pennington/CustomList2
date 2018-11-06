@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class Class1
+    public class BriansList<T>
     {
+        public void Add (T item)
+        {
+            T[] array = new T[] { item };
+        }
     }
 }
