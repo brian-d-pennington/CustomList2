@@ -35,18 +35,21 @@ namespace CustomListClass
             count++;
         }
 
-        
         public int Count
         {
             get { return count; }
         }
 
-
-
         public T this[int i]
         {
             get { return arr[i]; }
             set { arr[i] = value; }
+        }
+
+        public void Remove(T item)
+        {
+            T localVar = arr[count];
+
         }
 
     }

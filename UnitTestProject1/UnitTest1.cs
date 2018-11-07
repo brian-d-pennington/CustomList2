@@ -92,7 +92,7 @@ namespace UnitTestProject1
             list.Add(4);
             int expected = 3;
             //Act
-            list.Remove[2];
+            list.Remove(2);
             int actual = list.Count;
             //Assert
             Assert.AreEqual(expected, actual);
@@ -110,28 +110,52 @@ namespace UnitTestProject1
 
             int expected = 4;
             //Act
-            list.Remove[2];
+            list.Remove(3);
             int actual = list[2];
             //Assert
             Assert.AreEqual(expected, actual);
         }
-         
+        
         [TestMethod]
-        public void RemoveFromList_IfHalfOfListRemoved_HalfGetsRemoved()
+        public void RemoveFromList_IfRemoveSameNumber_AllInstancesRemoved()
         {
             //Arrange
             BriansList<int> list = new BriansList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(1);
+            list.Add(1);
+
+            int expected = 1;
             //Act
-            for (int i = 0; i < 1000; i++)
-            {
-                list.Add(i);
-            }
-            for (int i = 500; i < 500; i++)
+            list.Remove(1);
+            int actual = list.Count;
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void RemoveFromList_RemoveWholeList()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            int expected = 0;
+            //Act
+            for (int i = 0; i < list.Count; i++)
             {
                 list.Remove(i);
             }
+            int actual = list.Count;
             //Assert
+            Assert.AreEqual(expected, actual);
         }
+
+        
 
     }
 }
