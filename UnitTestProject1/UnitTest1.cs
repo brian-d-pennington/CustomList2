@@ -15,7 +15,7 @@ namespace UnitTestProject1
             int expected = 1;
             //act
             list.Add(16);
-            int actual = list.Count;
+            int actual = list.Count();
             //assert
             Assert.AreEqual(expected, actual);
         }
