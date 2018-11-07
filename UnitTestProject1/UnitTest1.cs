@@ -37,12 +37,12 @@ namespace UnitTestProject1
         {
             //Arrange
             BriansList<int> list = new BriansList<int>();
-            int expected = 17;
+            int expected = 16;
             int actual;
             //Act
             list.Add(16);
             list.Add(17);
-            actual = list[1];
+            actual = list[0];
 
             Assert.AreEqual(expected, actual);
         }
@@ -58,14 +58,80 @@ namespace UnitTestProject1
             {
                 list.Add(i);
             }
-            actual = list[999];
+            actual = list.Count;
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void AddToList_AddFifteen_GetIndexFourteen()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            int expected = 14;
+            int actual;
+            //Act
+            for (int i = 0; i < 15; i++)
+            {
+                list.Add(i);
+            }
+            actual = list[14];
             //Assert
             Assert.AreEqual(expected, actual);
         }
 
         //Remove() tests
-        
-        
+        [TestMethod]
+        public void RemoveFromList_IfIndexRemoved_ListOneCountLess()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            int expected = 3;
+            //Act
+            list.Remove[2];
+            int actual = list.Count;
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveFromList_IfIndexReferenced_MakeSureIndexRemoved()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+
+            int expected = 4;
+            //Act
+            list.Remove[2];
+            int actual = list[2];
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+         
+        [TestMethod]
+        public void RemoveFromList_IfHalfOfListRemoved_HalfGetsRemoved()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            //Act
+            for (int i = 0; i < 1000; i++)
+            {
+                list.Add(i);
+            }
+            for (int i = 500; i < 500; i++)
+            {
+                list.Remove(i);
+            }
+            //Assert
+        }
 
     }
 }

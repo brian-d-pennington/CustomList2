@@ -19,19 +19,22 @@ namespace CustomListClass
             arr = new T[capacity];
         }
         // count?
-        public void Add (T item)
+        public void Add(T item)
         {
-            arr = new T[] { item };
+            if (count == capacity)
+            {
+                capacity = capacity * 2;
+                T[] tempArr = new T[capacity];
+                for (int j = 0; j < count; j++)
+                {
+                    tempArr[j] = arr[j];
+                }
+                arr = tempArr;
+            }
+            arr[count] = item;
             count++;
         }
 
-        public void Capacity()
-        {
-            if (capacity == 10)
-            {
-                capacity = capacity * 2;
-            }
-        }
         
         public int Count
         {
