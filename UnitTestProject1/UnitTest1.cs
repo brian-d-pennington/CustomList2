@@ -15,7 +15,7 @@ namespace UnitTestProject1
             int expected = 1;
             //act
             list.Add(16);
-            int actual = list.Count();
+            int actual = list.Count;
             //assert
             Assert.AreEqual(expected, actual);
         }
@@ -24,10 +24,10 @@ namespace UnitTestProject1
         {
             //Arrange
             BriansList<int> list = new BriansList<int>();
-            int expected = 17;
+            int expected = 3;
             //Act
-            list.Add(16);
-            list.Add(17);
+            list.Add(2);
+            list.Add(3);
             int actual = list[1];
 
             Assert.AreEqual(expected, actual);
@@ -47,7 +47,7 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
         }
         [TestMethod]
-        public void AddToList_1000Adds()
+        public void AddToList_AddOneThousand_GetIndexNineNinetyNine()
         {
             //Arrange
             BriansList<int> list = new BriansList<int>();
@@ -64,18 +64,8 @@ namespace UnitTestProject1
         }
 
         //Remove() tests
-        [TestMethod]
-        public void RemoveItem_RemovesLastIndex()
-        {
-            //Arrange
-            BriansList<int> list = new BriansList<int>();
-            int expected;
-            int actual;
-            //Act
-            list.Remove(list[i]);
-            //Assert
-
-        }
+        
+        
 
     }
 }
