@@ -48,8 +48,25 @@ namespace CustomListClass
 
         public void Remove(T item)
         {
-            T localVar = arr[count];
+            T[] localArr = new T[arr.Length];
 
+            for (int j = 0; j < arr.Length; j++)
+            {
+                localArr[j] = arr[j];
+                if (!item.Equals(arr[j]))
+                {
+                   
+                }
+                else if (item.Equals(arr[j]))
+                {
+                    localArr[j] = arr[j + 1]; // skips index, resumes loop
+                    for (int k = 0; k < arr.Length; k++)
+                    {
+                        localArr[k] = arr[k];
+                    }
+                }
+                arr = localArr;
+            }
         }
 
     }

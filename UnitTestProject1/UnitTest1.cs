@@ -155,6 +155,22 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void RemoveFromList_IfRemovingNothing_SameListReturns()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            int expected = 4;
+            //Act
+            list.Remove(0); //as in, no zero value to find
+            int actual = list.Count;
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
         
 
     }
