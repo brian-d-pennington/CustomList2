@@ -15,10 +15,9 @@ namespace CustomListClass
             list.Add(2);
             list.Add(3);
             list.Add(4);
-
-           
+            
             //Act
-            list.Remove(1);
+            list.Stringifier();
         }
     }
 }

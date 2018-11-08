@@ -11,6 +11,7 @@ namespace CustomListClass
         int capacity;
         T[] arr;
         int count;
+     
 
         public BriansList()
         {
@@ -50,6 +51,7 @@ namespace CustomListClass
         {
             T[] localArr = new T[count];
             bool itemHasBeenFound = false;
+            int localCount =0;
             for (int j = 0; j < count; j++)
             {
                 if (itemHasBeenFound == false)
@@ -63,6 +65,7 @@ namespace CustomListClass
                         localArr[j] = arr[j + 1];
                         itemHasBeenFound = true;
                         count -= 1;
+                        localCount = count;
                     }
                 }
                 
@@ -72,11 +75,7 @@ namespace CustomListClass
                 }
                
             }
-            
-            for (int i = 0; i < localArr.Length -1 ; i++)
-            {
-                arr[i] = localArr[i];
-            }
+            arr = localArr;
         }
 
     
@@ -87,6 +86,17 @@ namespace CustomListClass
             //return newList;
         //}
     
+        public override string ToString()
+        {
+            StringBuilder newString = new StringBuilder();
+            for (int i = 0; i < count; i++)
+            {
+                newString.Append(arr[i]);
+            }
+            var stringHolder = newString.ToString();
+            return stringHolder;
+        }
+        
 
     }
 }
