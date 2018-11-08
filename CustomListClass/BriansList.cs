@@ -48,40 +48,45 @@ namespace CustomListClass
 
         public void Remove(T item)
         {
-            for (int j = 0; j < arr.Length; j++)
+            T[] localArr = new T[count];
+            bool itemHasBeenFound = false;
+            for (int j = 0; j < count; j++)
             {
-                T[] localArr = new T[arr.Length];
-                localArr[j] = arr[j];
-                if (!item.Equals(arr[j]))
+                if (itemHasBeenFound == false)
                 {
-                    // nothing found
-                }
-                else if (item.Equals(arr[j]))
-                {
-                    localArr[j] = arr[j + 1]; // skips index, resumes loop
-                    for (int k = 0; k < arr.Length; k++)
+                    if (!item.Equals(arr[j]))
                     {
-                        localArr[k] = arr[k];
+                        localArr[j] = arr[j];
+                    }
+                    else
+                    {
+                        localArr[j] = arr[j + 1];
+                        itemHasBeenFound = true;
+                        count -= 1;
                     }
                 }
-                arr = localArr;
+                
+                else
+                {
+                    localArr[j] = arr[j + 1];
+                }
+               
+            }
+            
+            for (int i = 0; i < localArr.Length -1 ; i++)
+            {
+                arr[i] = localArr[i];
             }
         }
 
-        public T ListConcat operator+ (T item, T item)
-        {
-            BriansList<int> newList = new BriansList<int>();
-            newList = listOne + listTwo;
-
-        }
-    public static Box operator+ (Box b, Box c)
-        {
-            Box box = new Box();
-            box.length = b.length + c.length;
-            box.breadth = b.breadth + c.breadth;
-            box.height = b.height + c.height;
-            return box;
-        }
+    
+        //public static BriansList<int> newList operator +(listOne, listTwo)
+        //{
+            //BriansList<int> newList = new BriansList<int>();
+            //newList = listOne + listTwo;
+            //return newList;
+        //}
+    
 
     }
 }
