@@ -48,14 +48,13 @@ namespace CustomListClass
 
         public void Remove(T item)
         {
-            T[] localArr = new T[arr.Length];
-
             for (int j = 0; j < arr.Length; j++)
             {
+                T[] localArr = new T[arr.Length];
                 localArr[j] = arr[j];
                 if (!item.Equals(arr[j]))
                 {
-                   
+                    // nothing found
                 }
                 else if (item.Equals(arr[j]))
                 {
@@ -67,6 +66,21 @@ namespace CustomListClass
                 }
                 arr = localArr;
             }
+        }
+
+        public T ListConcat operator+ (T item, T item)
+        {
+            BriansList<int> newList = new BriansList<int>();
+            newList = listOne + listTwo;
+
+        }
+    public static Box operator+ (Box b, Box c)
+        {
+            Box box = new Box();
+            box.length = b.length + c.length;
+            box.breadth = b.breadth + c.breadth;
+            box.height = b.height + c.height;
+            return box;
         }
 
     }
