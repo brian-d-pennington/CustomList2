@@ -216,8 +216,53 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
 
         }
+
         [TestMethod]
-        public void Stringifier_IfListBrokenDownToStrings_ToStrings()
+        public void OverloadMinus_IfPreviousListSubtracted_SubtractListquantity()
+        {
+            //Arrange
+            BriansList<int> listOne = new BriansList<int>();
+            BriansList<int> listTwo = new BriansList<int>();
+            BriansList<int> listToSubtract = listOne;
+            listOne.Add(1);
+            listOne.Add(2);
+            listOne.Add(3);
+            listTwo.Add(4);
+            listTwo.Add(5);
+            listTwo.Add(6);
+            BriansList<int> newList = listOne + listTwo;
+            int expected = 3;
+            //Act
+            BriansList<int> reducedList = newList - listOne;
+            int actual = reducedList.Count;
+            //Assert    
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void OverloadMinus_IfPreviousListSubtracted_IndexesMatch()
+        {
+            //Arrange
+            BriansList<int> listOne = new BriansList<int>();
+            BriansList<int> listTwo = new BriansList<int>();
+            BriansList<int> listToSubtract = listOne;
+            listOne.Add(1);
+            listOne.Add(2);
+            listOne.Add(3);
+            listTwo.Add(4);
+            listTwo.Add(5);
+            listTwo.Add(6);
+            BriansList<int> newList = listOne + listTwo;
+            int expected = 4;
+            //Act
+            BriansList<int> reducedList = newList - listOne;
+            int actual = reducedList[0];
+            //Assert    
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
+        public void ToString_IfListBrokenDownToStrings_ToStrings()
         {
             //Arrange
             BriansList<int> list = new BriansList<int>();
@@ -227,7 +272,7 @@ namespace UnitTestProject1
             list.Add(4);
             string expected = "1234";
             
-            //Ac
+            //Act
             
             string actual = list.ToString();
             //Assert

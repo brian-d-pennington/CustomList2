@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class BriansList<T>
+    public class BriansList<T> : IEnumerable
     {
         int capacity;
         T[] arr;
@@ -83,9 +84,29 @@ namespace CustomListClass
         public static BriansList<T> operator+(BriansList<T> listOne, BriansList<T> listTwo)
         {
             BriansList<T> newList = new BriansList<T>();
+            for (int i = 0; i < listOne.count; i++)
+            {
+                newList.Add(listOne[i]);
+            }
+            for (int i = 0; i < listTwo.count; i++)
+            {
+                newList.Add(listTwo[i]);
+            }
             return newList;
-        }   
-    
+        }
+
+        public static BriansList<T> operator-(BriansList<T> newList, BriansList<T> listToSubtract)
+        {
+            BriansList<T> reducedList = new BriansList<T>();
+            for (int i = 0; i < newList.count; i++)
+            {
+                if (!listToSubtract[i].Equals(newList[i]))
+                {
+                    reducedList.Add(newList[i]);
+                }
+            }
+            return reducedList;
+        }
         public override string ToString()
         {
             StringBuilder newString = new StringBuilder();
@@ -96,7 +117,20 @@ namespace CustomListClass
             string stringHolder = newString.ToString();
             return stringHolder;
         }
+
+        public IEnumerator GetEnumerator()
+        {
+            foreach (int x in BriansList<T>)
+            {
+                return x;
+            }
+        }
+
         
+
+
+
+
 
     }
 }
