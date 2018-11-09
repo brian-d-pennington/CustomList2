@@ -218,6 +218,27 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
+        public void OverloadPlus_IfTwoEqualListsAdded_CheckFullArray()
+        {
+            //Arrange
+            BriansList<int> listOne = new BriansList<int>();
+            BriansList<int> listTwo = new BriansList<int>();
+            listOne.Add(1);
+            listOne.Add(2);
+            listOne.Add(3);
+            listTwo.Add(4);
+            listTwo.Add(5);
+            listTwo.Add(6);
+            int[] expected = { 1, 2, 3, 4, 5, 6 };
+            //Act
+            BriansList<int> newList = listOne + listTwo;
+            int[] actual = newList.arr; 
+            //Assert    
+            Assert.ReferenceEquals(expected, actual);
+
+        }
+
+        [TestMethod]
         public void OverloadMinus_IfPreviousListSubtracted_SubtractListquantity()
         {
             //Arrange
@@ -262,6 +283,28 @@ namespace UnitTestProject1
 
         }
         [TestMethod]
+        public void OverloadMinus_IfSecondListSubtracted_IndexesMatch()
+        {
+            //Arrange
+            BriansList<int> listOne = new BriansList<int>();
+            BriansList<int> listTwo = new BriansList<int>();
+            BriansList<int> listToSubtract = listOne;
+            listOne.Add(1);
+            listOne.Add(2);
+            listOne.Add(3);
+            listTwo.Add(4);
+            listTwo.Add(5);
+            listTwo.Add(6);
+            BriansList<int> newList = listOne + listTwo;
+            int expected = 2;
+            //Act
+            BriansList<int> reducedList = newList - listTwo;
+            int actual = reducedList[1];
+            //Assert    
+            Assert.AreEqual(expected, actual);
+
+        }
+        [TestMethod]
         public void ToString_IfListBrokenDownToStrings_ToStrings()
         {
             //Arrange
@@ -285,6 +328,7 @@ namespace UnitTestProject1
             //Arrange
             BriansList<int> listOne = new BriansList<int>();
             BriansList<int> listTwo = new BriansList<int>();
+            BriansList<int> zippedList = new BriansList<int>();
             listOne.Add(1);
             listOne.Add(2);
             listOne.Add(3);
@@ -293,10 +337,32 @@ namespace UnitTestProject1
             listTwo.Add(6);
             int expected = 6;
             //Act
-            BriansList<int> zippedList = zippedList.ListZipper(listOne, listTwo);
-            int actual = newList.Count;
+            zippedList.ListZipper(listOne, listTwo);
+            int actual = zippedList[5];
             //Assert    
             Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void ListZipper_IfTwoEqualListsProvided_ChecksForFullList()
+        {
+            //Arrange
+            BriansList<int> listOne = new BriansList<int>();
+            BriansList<int> listTwo = new BriansList<int>();
+            BriansList<int> zippedList = new BriansList<int>();
+            listOne.Add(1);
+            listOne.Add(2);
+            listOne.Add(3);
+            listTwo.Add(4);
+            listTwo.Add(5);
+            listTwo.Add(6);
+            int[] expected = { 1, 4, 2, 5, 3, 6 };
+            //Act
+            zippedList.ListZipper(listOne, listTwo);
+            int[] actual = zippedList.arr;
+            //Assert    
+            Assert.ReferenceEquals(expected, actual);
 
         }
 

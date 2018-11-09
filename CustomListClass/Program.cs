@@ -10,7 +10,13 @@ namespace CustomListClass
     {
         static void Main(string[] args)
         {
-            
+            BriansList<int> list = new BriansList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+
+            Console.Write(list.GetEnumerator());
         }
     }
 }

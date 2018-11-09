@@ -10,7 +10,7 @@ namespace CustomListClass
     public class BriansList<T> : IEnumerable
     {
         int capacity;
-        T[] arr;
+        public T[] arr; //public for testing
         int count;
         string stringHolder;
      
@@ -134,7 +134,7 @@ namespace CustomListClass
                 zippedList.Add(listOne[i]);
                 zippedList.Add(listTwo[i]);
             }
-            
+            arr = zippedList.arr;
             //
         }
 
