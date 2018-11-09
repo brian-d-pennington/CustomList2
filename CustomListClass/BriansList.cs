@@ -80,12 +80,11 @@ namespace CustomListClass
         }
 
     
-        //public static BriansList<int> newList operator +(listOne, listTwo)
-        //{
-        //    BriansList<int> newList = new BriansList<int>();
-        //    newList = listOne + listTwo;
-         //   return newList;
-        //}
+        public static BriansList<T> operator+(BriansList<T> listOne, BriansList<T> listTwo)
+        {
+            BriansList<T> newList = new BriansList<T>();
+            return newList;
+        }   
     
         public override string ToString()
         {

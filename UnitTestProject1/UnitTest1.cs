@@ -174,9 +174,9 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
         }
         
-         overloaded operator+
+         //overloaded operator+
         [TestMethod]
-        public void ListConcat_IfTwoEqualListsAdded_LastIndexChecksOut()
+        public void OverloadPlus_IfTwoEqualListsAdded_LastIndexChecksOut()
         {
             //Arrange
             BriansList<int> listOne = new BriansList<int>();
@@ -189,7 +189,7 @@ namespace UnitTestProject1
             listTwo.Add(6);
             int expected = 6;
             //Act
-            ListConcat(listOne, listTwo); //creates newList
+            BriansList<int> newList = listOne + listTwo; //creates newList
             int actual = newList[5];
             //Assert
             Assert.AreEqual(expected, actual);
@@ -210,12 +210,12 @@ namespace UnitTestProject1
             listTwo.Add(6);
             int expected = 6;
             //Act
-                 //creates newList
+            BriansList<int> newList = listOne + listTwo;
             int actual = newList.Count;
-            //Assert
+            //Assert    
             Assert.AreEqual(expected, actual);
 
-        //}
+        }
         [TestMethod]
         public void Stringifier_IfListBrokenDownToStrings_ToStrings()
         {
