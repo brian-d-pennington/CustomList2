@@ -98,13 +98,20 @@ namespace CustomListClass
         public static BriansList<T> operator-(BriansList<T> newList, BriansList<T> listToSubtract)
         {
             BriansList<T> reducedList = new BriansList<T>();
-            for (int i = 0; i < newList.count; i++)
-            {
-                if (!listToSubtract[i].Equals(newList[i]))
+            //if listToSubtract[i] WRITE OBJECT BOOLEANS LIKE BELOW
+            for (int j = 0; j < listToSubtract.count; j++)
+            if (listToSubtract[0] == newList[j] && listToSubtract[1] == newList[j] && listToSubtract[2] == newList[j])
                 {
-                    reducedList.Add(newList[i]);
+                    for (int i = 0; i < newList.count; i++)
+                    {
+                        if (!listToSubtract[i].Equals(newList[i]))
+                        {
+                            reducedList.Add(newList[i]);
+                        }
+                    }
                 }
-            }
+
+            
             return reducedList;
         }
         public override string ToString()
