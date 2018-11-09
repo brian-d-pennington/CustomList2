@@ -11,6 +11,7 @@ namespace CustomListClass
         int capacity;
         T[] arr;
         int count;
+        string stringHolder;
      
 
         public BriansList()
@@ -81,9 +82,9 @@ namespace CustomListClass
     
         //public static BriansList<int> newList operator +(listOne, listTwo)
         //{
-            //BriansList<int> newList = new BriansList<int>();
-            //newList = listOne + listTwo;
-            //return newList;
+        //    BriansList<int> newList = new BriansList<int>();
+        //    newList = listOne + listTwo;
+         //   return newList;
         //}
     
         public override string ToString()
@@ -93,7 +94,7 @@ namespace CustomListClass
             {
                 newString.Append(arr[i]);
             }
-            var stringHolder = newString.ToString();
+            string stringHolder = newString.ToString();
             return stringHolder;
         }
         

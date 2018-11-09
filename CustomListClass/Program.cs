@@ -17,7 +17,7 @@ namespace CustomListClass
             list.Add(4);
             
             //Act
-            list.Stringifier();
+            list.ToString();
         }
     }
 }

@@ -126,7 +126,7 @@ namespace UnitTestProject1
             list.Add(1);
             list.Add(1);
 
-            int expected = 1;
+            int expected = 3;
             //Act
             list.Remove(1);
             int actual = list.Count;
@@ -144,11 +144,13 @@ namespace UnitTestProject1
             list.Add(2);
             list.Add(3);
             list.Add(4);
+            list.Add(5);
+            list.Add(6);
             int expected = 0;
             //Act
-            for (int i = 0; i < list.Count; i++)
+            for (int i = list.Count -1; i >= 0; i--)
             {
-                list.Remove(i);
+                list.Remove(list[i]);
             }
             int actual = list.Count;
             //Assert
@@ -172,6 +174,65 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
         }
         
+         overloaded operator+
+        [TestMethod]
+        public void ListConcat_IfTwoEqualListsAdded_LastIndexChecksOut()
+        {
+            //Arrange
+            BriansList<int> listOne = new BriansList<int>();
+            BriansList<int> listTwo = new BriansList<int>();
+            listOne.Add(1);
+            listOne.Add(2);
+            listOne.Add(3);
+            listTwo.Add(4);
+            listTwo.Add(5);
+            listTwo.Add(6);
+            int expected = 6;
+            //Act
+            ListConcat(listOne, listTwo); //creates newList
+            int actual = newList[5];
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [TestMethod]
+        public void OverloadPlus_IfTwoEqualListsAdded_LisCountChecksOut()
+        {
+            //Arrange
+            BriansList<int> listOne = new BriansList<int>();
+            BriansList<int> listTwo = new BriansList<int>();
+            listOne.Add(1);
+            listOne.Add(2);
+            listOne.Add(3);
+            listTwo.Add(4);
+            listTwo.Add(5);
+            listTwo.Add(6);
+            int expected = 6;
+            //Act
+                 //creates newList
+            int actual = newList.Count;
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        //}
+        [TestMethod]
+        public void Stringifier_IfListBrokenDownToStrings_ToStrings()
+        {
+            //Arrange
+            BriansList<int> list = new BriansList<int>();
+            list.Add(1);
+            list.Add(2);
+            list.Add(3);
+            list.Add(4);
+            string expected = "1234";
+            
+            //Ac
+            
+            string actual = list.ToString();
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 }
