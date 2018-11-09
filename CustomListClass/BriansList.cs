@@ -120,13 +120,24 @@ namespace CustomListClass
 
         public IEnumerator GetEnumerator()
         {
-            foreach (int x in BriansList<T>)
+            foreach (T index in arr)
             {
-                return x;
+                yield return index;
             }
         }
 
-        
+        public void ListZipper(BriansList<T> listOne, BriansList<T> listTwo)
+        {
+            BriansList<T> zippedList = new BriansList<T>();
+            for (int i = 0; i < listOne.count + listTwo.count; i++)
+            {
+                zippedList.Add(listOne[i]);
+                zippedList.Add(listTwo[i]);
+            }
+            
+            //
+        }
+
 
 
 

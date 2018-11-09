@@ -279,5 +279,26 @@ namespace UnitTestProject1
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        public void ListZipper_IfTwoEqualListsProvided_NewZipperedList()
+        {
+            //Arrange
+            BriansList<int> listOne = new BriansList<int>();
+            BriansList<int> listTwo = new BriansList<int>();
+            listOne.Add(1);
+            listOne.Add(2);
+            listOne.Add(3);
+            listTwo.Add(4);
+            listTwo.Add(5);
+            listTwo.Add(6);
+            int expected = 6;
+            //Act
+            BriansList<int> zippedList = zippedList.ListZipper(listOne, listTwo);
+            int actual = newList.Count;
+            //Assert    
+            Assert.AreEqual(expected, actual);
+
+        }
+
     }
 }
