@@ -10,13 +10,23 @@ namespace CustomListClass
     {
         static void Main(string[] args)
         {
-            BriansList<int> list = new BriansList<int>();
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
-
-            Console.Write(list.GetEnumerator());
+            BriansList<int> listOne = new BriansList<int>();
+            BriansList<int> listTwo = new BriansList<int>();
+            BriansList<int> listToSubtract = listTwo;
+            listOne.Add(1);
+            listOne.Add(2);
+            listOne.Add(3);
+            listOne.Add(4);
+            listOne.Add(5);
+            listOne.Add(6);
+            listTwo.Add(4);
+            listTwo.Add(5);
+            listTwo.Add(6);
+            BriansList<int> newList = listOne + listTwo;
+            
+            BriansList<int> reducedList = newList - listTwo;
+            
+     
         }
     }
 }

@@ -103,20 +103,16 @@ namespace CustomListClass
             {
                 if (listToSubtract[0].Equals(newList[j]) && listToSubtract[1].Equals(newList[j+1]) && listToSubtract[2].Equals(newList[j+2]))
                 {
-                    for (int i = 0; i < newList.count; i++)
-                    {
-                        if (!listToSubtract[i].Equals(newList[i]))
-                        {
-                            reducedList.Add(newList[i]);
-                        }
-                    }
-                    return reducedList;
+                    newList.Remove(listToSubtract[j]);
+                    newList.Remove(listToSubtract[j + 1]);
+                    newList.Remove(listToSubtract[j + 2]);
                 }
                 else
                 {
-                    return newList;
+                    return newList; // no list found to remove
                 }
             }
+            reducedList = newList;
             return reducedList;
         }
         public override string ToString()
