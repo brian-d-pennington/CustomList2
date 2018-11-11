@@ -1,0 +1,31 @@
+public static BriansList<T> operator-(BriansList<T> newList, BriansList<T> listToSubtract)
+        {
+            BriansList<T> reducedList = new BriansList<T>();
+            
+            for (int j = 0; j < newList.count; j++)
+            {
+                if (listToSubtract[0].Equals(newList[j]) && listToSubtract[1].Equals(newList[j+1]) && listToSubtract[2].Equals(newList[j+2]))
+                {
+                    newList.Remove(listToSubtract[j]);
+                    newList.Remove(listToSubtract[j + 1]);
+                    newList.Remove(listToSubtract[j + 2]);
+                   
+                }
+                else
+                {
+                    return newList; // no list found to remove
+                }
+            }
+            reducedList = newList;
+            return reducedList;
+        }
+
+This minus overload takes both an instance of BriansList<T> (custom list class) newList and BriansList<T> listToSubtract
+as parameters: the latter to be subtracted from the former. The first step is to instantiate a new BriansList<T> object
+called reducedList, which will store the new subtracted list. The conditional statement at line 7 looks for a 3 character
+matchup so it doesn't just find the first coincidental matchup. It then loops through newList to call Remove() on the
+3 matching characters (targeting by index: i, i+1, & i+2. This method can currently only subtract a list of 3 characters).
+After the loop the altered newList is assigned to reduceList, and since the class is static the reducedList object
+is returned.
+
+[note: this class doesn't currently pass all unit tests and is a work in progress]		

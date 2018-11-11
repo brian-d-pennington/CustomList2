@@ -12,21 +12,20 @@ namespace CustomListClass
         {
             BriansList<int> listOne = new BriansList<int>();
             BriansList<int> listTwo = new BriansList<int>();
-            BriansList<int> listToSubtract = listTwo;
+            BriansList<int> listToSubtract = listOne;
             listOne.Add(1);
             listOne.Add(2);
             listOne.Add(3);
-            listOne.Add(4);
-            listOne.Add(5);
-            listOne.Add(6);
             listTwo.Add(4);
             listTwo.Add(5);
             listTwo.Add(6);
             BriansList<int> newList = listOne + listTwo;
             
-            BriansList<int> reducedList = newList - listTwo;
+            //Act
+            BriansList<int> reducedList = newList - listOne;
             
-     
+
+
         }
     }
 }

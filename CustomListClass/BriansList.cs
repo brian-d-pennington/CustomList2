@@ -106,6 +106,7 @@ namespace CustomListClass
                     newList.Remove(listToSubtract[j]);
                     newList.Remove(listToSubtract[j + 1]);
                     newList.Remove(listToSubtract[j + 2]);
+                   
                 }
                 else
                 {
